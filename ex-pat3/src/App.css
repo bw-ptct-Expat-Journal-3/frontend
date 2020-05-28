@@ -52,32 +52,446 @@ a {
   margin-bottom: 25px;
   text-decoration: none;
   color: white;
+  font-size: 1.8rem;
+
   /* display: flex; */
   /* flex-direction: row;
   justify-content: space-evenly; */
+}
+a:hover {
+  color: #98f199;
+  font-size: 2.2rem;
 }
 fieldset {
   border: 2px inset dodgerblue;
   width: 55%;
   height: 63vh;
+  background: silver;
+  margin-bottom: 5px;
 }
 .dk {
   margin: 0 auto;
   /* background-color: #98f198; */
-  width: 50%;
+  width: 55%;
   height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   vertical-align: middle;
 }
+
+.dk1 {
+  margin: 0 auto;
+  background-color: #98f198;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+}
+legend {
+  margin: 12px;
+  background: orangered;
+  color: Navy;
+  font-size: 1.8rem;
+}
+.dklabel {
+  color: blue;
+  font-size: 1.8rem;
+  float: rigth;
+  padding: 10px;
+}
 .input {
-  margin-top: 20px;
+  margin-top: 5px;
   width: 300px;
-  padding: 20px;
+  padding: 10px;
+}
+
+.input1 {
+  margin-top: 5px;
+  width: 300px;
+  padding: 5px;
 }
 .btn {
+  margin: 15px auto;
   padding: 10px;
   width: 80px;
   color: #282c34;
+  /* align-items: center; */
+  /* border: 2px outset orangered; */
+}
+
+/* for marketing */
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+@media (max-width: 1000px) {
+  html,
+  body {
+    margin: 1%;
+  }
+}
+@media (max-width: 500px) {
+  html,
+  body {
+    margin: 2%;
+  }
+}
+h1,
+h2,
+h3 {
+  font-family: monospace;
+}
+h1 {
+  font-size: 7rem;
+  padding-top: 2%;
+  margin-left: 1%;
+}
+h2 {
+  font-size: 4rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+h3 {
+  font-size: 3rem;
+  padding: 5px;
+}
+p {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  max-width: 1200px;
+  width: 98%;
+  margin: 0 auto;
+}
+@media (max-width: 1000px) {
+  .container {
+    margin: 1%;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    margin: 0 auto;
+  }
+}
+hr {
+  border-bottom: 1px solid slategray;
+  margin: 10px;
+  width: 98%;
+}
+.header {
+  background-color: #a0cef3;
+  border: 1px solid slategray;
+  border-radius: 1rem;
+  margin-top: 10px;
+}
+@media (max-width: 1000px) {
+  .header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+}
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 1000px) {
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+nav a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  padding: 1.5%;
+  color: black;
+}
+nav a:hover {
+  color: white;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2%;
+}
+.footer button {
+  background-color: #4a7699;
+  margin-top: 10px;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.footer button:hover {
+  background-color: white;
+  color: slategray;
+}
+.footer p {
+  color: black;
+  font-size: 1.4rem;
+  padding: 25px;
+}
+.intro img {
+  border-radius: 0.75rem;
+}
+.introDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightgrey;
+  border: 1px solid slategrey;
+  border-radius: 1rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+.introDiv h2 {
+  font-size: 7rem;
+}
+.introDiv h3 {
+  padding-bottom: 10px;
+}
+.introDiv nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introDiv button {
+  background-color: #4a7699;
+  margin-top: 10px;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.introDiv button:hover {
+  background-color: white;
+  color: slategray;
+}
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+@media (max-width: 1000px) {
+  .mainContent {
+    flex-direction: column;
+  }
+}
+.mainContent div {
+  margin: 20px;
+  background-color: navajowhite;
+  border: 1px solid slategrey;
+  border-radius: 1rem;
+  padding: 10px;
+  height: 550px;
+}
+@media (max-width: 1000px) {
+  .mainContent div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+  }
+}
+.mainContent div img {
+  border-radius: 0.75rem;
+}
+.mainContent div h3 {
+  margin: 5px;
+}
+.aboutIntro {
+  margin: 20px;
+}
+.aboutIntro img {
+  border-radius: 0.75rem;
+}
+.aboutIntroDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: navajowhite;
+  border: 1px solid slategrey;
+  border-radius: 1rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.aboutIntroDiv h2 {
+  font-size: 7rem;
+}
+.aboutIntroDiv h3 {
+  padding-bottom: 10px;
+}
+.aboutIntroDiv nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aboutIntroDiv button {
+  background-color: #4a7699;
+  margin-top: 10px;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.aboutIntroDiv button:hover {
+  background-color: white;
+  color: slategray;
+}
+.teamIntro {
+  padding: 10px;
+  background-image: url("./kcomponent/Images/clouds.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border: 1px solid slategrey;
+  border-radius: 0.75rem;
+}
+@media (max-width: 1000px) {
+  .teamIntro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  .teamIntro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.teamIntro h2 {
+  font-size: 5rem;
+}
+.teamContent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-image: url("./kcomponent/Images/clouds.jpg");
+  background-color: navajowhite;
+  border: 1px solid slategrey;
+  border-radius: 1rem;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.teamContent .teamHeader {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+@media (max-width: 1000px) {
+  .teamContent .teamHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  .teamContent .teamHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.teamContent .teamHeader h2 {
+  font-size: 7rem;
+  color: white;
+}
+.teamContent img {
+  border-radius: 15rem;
+  margin-bottom: 10px;
+}
+.teamContent .teamInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.teamContent .teamInfo div {
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid slategrey;
+  border-radius: 1rem;
+  background-color: lightgrey;
+  max-width: 300px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome_photo {
+  width: 1200px;
+  height: 300px;
+  background-image: url("./kcomponent/Images/welcome\ photo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.getaway {
+  width: 250px;
+  height: 200px;
+  background-image: url("./kcomponent/Images/getaway.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.share {
+  width: 250px;
+  height: 200px;
+  background-image: url("./kcomponent/Images/share.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.memories {
+  width: 250px;
+  height: 200px;
+  background-image: url("./kcomponent/Images/memories.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.earth {
+  width: 250px;
+  height: 200px;
+  background-image: url("./kcomponent/Images/earth.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }

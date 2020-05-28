@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import * as yup from "yup";
+import "../App.css";
 // import styled from "styled-components";
 
 // {
@@ -151,12 +152,12 @@ axios({
   return (
     <div className="form-wrapper">
       <form onSubmit={submitForm}>
-        <fieldset>
-          <legend>Form goes down here</legend>
+        <fieldset className="dk1">
+          <legend>Sign Up Form</legend>
           <label className="dklabel" htmlFor="username">
             Name:
             <input
-              className="dktext"
+              className="input1"
               type="text"
               name="username"
               id="name"
@@ -171,7 +172,7 @@ axios({
           <label className="dklabel" htmlFor="password">
             Password:
             <input
-              className="dktext"
+              className="input1"
               type="password"
               name="password"
               id="password"
@@ -184,7 +185,7 @@ axios({
           <label className="dklabel" htmlFor="first_name">
             First Name:
             <input
-              className="dktext"
+              className="input1"
               type="text"
               name="first_name"
               id="fname"
@@ -198,7 +199,7 @@ axios({
           <label className="dklabel" htmlFor="last_name">
             Last Name:
             <input
-              className="dktext"
+              className="input1"
               type="text"
               name="last_name"
               id="lname"
@@ -212,7 +213,7 @@ axios({
           <label className="dklabel" htmlFor="email">
             email:
             <input
-              className="dktext"
+              className="input1"
               type="text"
               name="email"
               id="email"
@@ -223,7 +224,9 @@ axios({
           </label>
           <br></br>
           {/* Button and Submit */}
-          <button type="submit">Submit</button>
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </fieldset>
       </form>
     </div>

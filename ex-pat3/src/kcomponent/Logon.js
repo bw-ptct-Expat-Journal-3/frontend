@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Switch, Link, Route } from "react-router-dom";
+import Form from "./login";
 import "../App.css";
 
 function Logon() {
@@ -35,7 +37,8 @@ function Logon() {
         value,
         {
           headers: {
-            "content-type": "application/json",
+            Accept: "application/json",
+            "Content-type": "application/json",
           },
           body: JSON.stringify(value),
         }
@@ -44,7 +47,7 @@ function Logon() {
       //     result.json();
       //   })
       .then((resp) => {
-        // console.log(resp.data);
+        console.log(resp.data.token);
         localStorage.setItem("token", resp.data.token);
       });
     //   });
@@ -91,9 +94,45 @@ function Logon() {
               />
               <br />
               <br />
-              <button className="btn" type="submit">
-                Login
-              </button>
+              <>
+                <div>
+                  <Link to="/login">
+                    <button
+                      className="btn"
+                      onClick={() => {
+                        // return (
+                        //   <>
+                        //     {/* <Route path="/login"> */}
+                        //       <Form />
+                        //     {/* </Route> */}
+                        //   </>
+                        // );
+                        //   alert("clicked");
+                        // return (
+                        //   <div>
+                        //     <div>
+                        //       <Link to="/login" />
+                        //     </div>
+                        //     <Route path="/login">
+                        //       <Form />
+                        //     </Route>
+                        //   </div>
+                        // );
+                      }}
+                    >
+                      Sign Up
+                    </button>
+                  </Link>
+                  <button className="btn" type="submit">
+                    Login
+                  </button>
+                </div>
+                <Switch>
+                  <Route path="/login">
+                    <Form />
+                  </Route>
+                </Switch>
+              </>
             </div>
           </fieldset>
         </form>
