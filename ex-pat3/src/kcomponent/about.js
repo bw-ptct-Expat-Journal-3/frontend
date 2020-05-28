@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -21,12 +22,14 @@ const About = () => {
             </div>
 
             <nav>
-              <a href="index.html" title="Home Page">
+              <Link to="/home">Home</Link>
+              {/* <a href="src/kcomponent/home.js" title="Home Page">
                 Home
-              </a>
-              <a href="about.html" title="About Page">
+              </a> */}
+              <Link to="/about">About</Link>
+              {/* <a href="about.html" title="About Page">
                 About
-              </a>
+              </a> */}
               <a href="#" title="Contact Page">
                 Contact
               </a>
@@ -88,7 +91,7 @@ const About = () => {
             <section className="mainContent">
               <div>
                 <span className="contentImg">
-                  <img className="getaway" />
+                  <img className="getaway" alt="getaway" />
                   {/* <img
                     src="Images/getaway.jpg"
                     alt="planned_image"

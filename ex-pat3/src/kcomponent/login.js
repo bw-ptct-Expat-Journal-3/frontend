@@ -130,18 +130,20 @@ axios({
       // Lauren  7:08 PM
 
       .post(
-        // "https://expat-journal-backend-jensen.herokuapp.com/api/auth/register",
-        "http://localhost:8000/api/auth/register",
+        "https://expat-journal-backend-jensen.herokuapp.com/api/auth/register",
+        // "http://localhost:8000/api/auth/register",
         dataState,
         {
           headers: {
+            // Accept: "application/json",
             "content-type": "application/json",
           },
           body: JSON.stringify(dataState),
         }
       )
       .then((response) => {
-        console.log(response);
+        console.log("data-->" + response);
+        JSON.parse(response);
       })
 
       //1. Edit

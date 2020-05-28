@@ -2,25 +2,64 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Switch, Link, Route } from "react-router-dom";
 import Form from "./login";
+import * as yup from "yup";
+
 import "../App.css";
 
+const formSchema = yup.object().shape({
+  //take name of each of our form from the <input name="name"
+
+  username: yup.string().required("Name is required"),
+  password: yup
+    .string()
+    //.password("valid password plz")
+    .required("Cant't be empty"),
+});
+
 function Logon() {
+  //
+
+  const validate = (e) => {
+    let value = e.target.value;
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(value)
+      .then((valid) => {
+        setErrorValue({
+          ...errorValue,
+          [e.target.name]: "",
+        });
+      })
+      .catch((err) => {
+        setErrorValue({
+          ...errorValue,
+          [e.target.name]: err.errors[0],
+        });
+      });
+  };
+
+  //
   const [value, setValue] = useState({
     username: "",
 
     password: "",
   });
-  //   const [errorState, setErrorState] = useState({
-  //     // id: "",
-  //     username: "",
 
-  //     password: "",
-  //   });
+  const [errorValue, setErrorValue] = useState({
+    username: "",
+
+    password: "",
+  });
+  //validate
+
+  // validate
 
   const inputChange = (e) => {
     console.log("input changed");
     e.persist();
-    //validate(e);
+
+    validate(e);
     let thevalue = e.target.value;
     //   e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setValue({ ...value, [e.target.name]: thevalue });
@@ -31,7 +70,7 @@ function Logon() {
     // setValue(e.target.value);
     console.warn("value: ->", value);
     axios
-      //   .post("http://localhost:8000/api/auth/login", value, {
+      // .post("http://localhost:8000/api/auth/login", value, {
       .post(
         "https://expat-journal-backend-jensen.herokuapp.com/api/auth/login",
         value,
@@ -82,6 +121,7 @@ function Logon() {
                 placeholder="Enter Name"
                 onChange={inputChange}
               />
+
               <br />
               <br />
               <input
@@ -92,36 +132,13 @@ function Logon() {
                 placeholder="Enter Password"
                 onChange={inputChange}
               />
+
               <br />
               <br />
               <>
                 <div>
                   <Link to="/login">
-                    <button
-                      className="btn"
-                      onClick={() => {
-                        // return (
-                        //   <>
-                        //     {/* <Route path="/login"> */}
-                        //       <Form />
-                        //     {/* </Route> */}
-                        //   </>
-                        // );
-                        //   alert("clicked");
-                        // return (
-                        //   <div>
-                        //     <div>
-                        //       <Link to="/login" />
-                        //     </div>
-                        //     <Route path="/login">
-                        //       <Form />
-                        //     </Route>
-                        //   </div>
-                        // );
-                      }}
-                    >
-                      Sign Up
-                    </button>
+                    <button className="btn">Sign Up</button>
                   </Link>
                   <button className="btn" type="submit">
                     Login

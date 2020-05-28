@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -20,13 +21,15 @@ const Home = () => {
             </div>
 
             <nav>
-              <a href="index.html" title="Home Page">
+              <Link to="/home">Home</Link>
+              {/* <a href="src/kcomponent/home.js" title="Home Page">
                 Home
-              </a>
-              <a href="about.html" title="About Page">
+              </a> */}
+              <Link to="/about">About</Link>
+              {/* <a href="src/kcomponent/about.js" title="About Page">
                 About
-              </a>
-              <a href="#" title="Contact Page">
+              </a> */}
+              <a href="src/kcomponent/contact.js" title="Contact Page">
                 Contact
               </a>
               <a href="#" title="Login Page">
@@ -43,7 +46,7 @@ const Home = () => {
               <span class="imgMain">
                 <img
                   src="https://picsum.photos/1200/300"
-                  alt="Intro Photo"
+                  alt="Intro_Photo"
                   title="Intro Photo"
                 />
               </span>
@@ -88,7 +91,7 @@ const Home = () => {
                 <span class="contentImg">
                   <img
                     src="https://picsum.photos/250"
-                    alt="planned image"
+                    alt="planned_image"
                     title="Content Photo"
                   />
                 </span>
@@ -106,7 +109,7 @@ const Home = () => {
                 <span class="contentImg2">
                   <img
                     src="https://picsum.photos/250"
-                    alt="shared image"
+                    alt="shared_image"
                     title="Content Photo"
                   />
                 </span>
@@ -124,7 +127,7 @@ const Home = () => {
                 <span class="contentImg3">
                   <img
                     src="https://picsum.photos/250"
-                    alt="memory image"
+                    alt="memory_image"
                     title="Content Photo"
                   />
                 </span>
@@ -141,7 +144,7 @@ const Home = () => {
                 <span class="contentImg4">
                   <img
                     src="https://picsum.photos/250"
-                    alt="worldview image"
+                    alt="worldview_image"
                     title="Content Photo"
                   />
                 </span>
