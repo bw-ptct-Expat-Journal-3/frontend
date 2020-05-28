@@ -8,28 +8,39 @@ import Contact from "./kcomponent/about";
 
 // import MyCompo from "./kcomponent/things";
 
-import Navigation from "./kcomponent/nav";
+// import Navigation from "./kcomponent/nav";
 // import Protected from "./kcomponent/protected";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Link, Route } from "react-router-dom";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Route path="/home">
-        <Home />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/contact">
-        <Contact />
-      </Route>
-      <Route path="/">
-        <Logon />
-      </Route>
+      <div className="AppContainer">
+        <Link to="/home">Home</Link>
+
+        <Link to="/about">About</Link>
+
+        <Link to="/contact">Contact</Link>
+
+        <Link to="/">Login</Link>
+      </div>
+      {/* <Navigation /> */}
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/">
+          <Logon />
+        </Route>
+      </Switch>
     </div>
   );
 }

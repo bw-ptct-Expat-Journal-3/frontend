@@ -34,7 +34,6 @@ function Logon() {
         "https://expat-journal-backend-jensen.herokuapp.com/api/auth/login",
         value,
         {
-          //
           headers: {
             "content-type": "application/json",
           },

@@ -1,25 +1,25 @@
-import React from "react";
+// import React from "react";
 
-import "../App.css";
-import { Route, Link } from "react-router-dom";
+// import "../App.css";
+// import { Route, Link } from "react-router-dom";
 
-function Navigation(props) {
-  return (
-    <div>
-      <div className="AppContainer">
-        <Link to={"/home"}>Home</Link>
+// function Navigation(props) {
+//   return (
+//     <div>
+//       <div className="AppContainer">
+//         <Link to={"/home"}>Home</Link>
 
-        <Link to="/about">About</Link>
+//         <Link to="/about">About</Link>
 
-        <Link to="/contact">Contact</Link>
+//         <Link to="/contact">Contact</Link>
 
-        <Link to="/">Login</Link>
-      </div>
-    </div>
-  );
-}
+//         <Link to="/">Login</Link>
+//       </div>
+//     </div>
+//   );
+// }
 
-export default Navigation;
+// export default Navigation;
 
 //   <Route path="/about">
 //     <Protected cmp={About} />
