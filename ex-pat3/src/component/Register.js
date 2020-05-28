@@ -1,7 +1,13 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+//import logo from "./logo.svg";
 import axios from 'axios';
 import * as yup from 'yup';
 import 'styled-components';
+
+
+
+export default function Register() {
+
 
 const formSchema = yup.object().shape({
     username: yup.string().required("Username is a required field"),
@@ -10,9 +16,9 @@ const formSchema = yup.object().shape({
     lastname: yup.string().required("Last name is a required field"),
     email: yup.string().required("Email is a required field"),
 });
-export default function Registration() {
 
-    const initialRegistrationState ={
+
+    const initialRegisterState ={
         username: "",
         password: "",
         firstname: "",
@@ -22,7 +28,7 @@ export default function Registration() {
 
     const [serverError, setServerError] = useState("");
     const [post, setPost] = useState([]);
-    const [formState, setFormState] =useState(initialRegistrationState);
+    const [formState, setFormState] =useState(initialRegisterState);
     const [isButtonDisabled, setIsButtonDisabled] =useState(true);
     const [errors, setErrors] = useState({
 
@@ -109,7 +115,7 @@ export default function Registration() {
                         id="usernameinput"
                         placeholder="Username"
                         value={formState.username}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.username.length > 2 ? <p className="error">{errors.username}</p> : null}
                         <br />
@@ -125,7 +131,7 @@ export default function Registration() {
                         id="passwordinput"
                         placeholder="Password"
                         value={formState.password}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
                         <br />
@@ -141,7 +147,7 @@ export default function Registration() {
                         id="passwordinput"
                         placeholder="Password"
                         value={formState.password}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
                         <br />
@@ -157,7 +163,7 @@ export default function Registration() {
                         id="firstnameinput"
                         placeholder="First_Name"
                         value={formState.firstname}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.firstname.length > 2 ? <p className="error">{errors.firstname}</p> : null}
                         <br />
@@ -173,7 +179,7 @@ export default function Registration() {
                         id="lastnameinput"
                         placeholder="Last_Name"
                         value={formState.lastname}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.lastname.length > 2 ? <p className="error">{errors.lastname}</p> : null}
                         <br />
@@ -189,7 +195,7 @@ export default function Registration() {
                         id="emailinput"
                         placeholder="Email"
                         value={formState.email}
-                        onchange={inputChange}
+                        onChange={inputChange}
                         />
                         {errors.email.length > 2 ? <p className="error">{errors.email}</p> : null}
                         <br />
@@ -203,3 +209,4 @@ export default function Registration() {
 
         }
 
+       

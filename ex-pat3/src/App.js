@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
-import Register from "./components/Register";
+//import logo from "./logo.svg";
+import Register from "./component/Register";
 import "./App.css";
 
 function App() {
