@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import logo from "./logo.svg";
+//import Form from "@rjsf/core";
 import axios from 'axios';
 import * as yup from 'yup';
 import 'styled-components';
@@ -58,7 +59,7 @@ const formSchema = yup.object().shape({
         };
 
         useEffect(() => {
-            formSchema.isValid(formState).then(valid => {
+           formSchema.isValid(formState).then(valid => {
                 console.log('valid?', valid);
                 setIsButtonDisabled(!valid);
             });
@@ -106,57 +107,10 @@ const formSchema = yup.object().shape({
                 alert("Registration complete, WELCOME!")
 
             }}>
-                <label htmlFor="username">
-                    Username
-
-                    <input
-                        type="text"
-                        username="name"
-                        id="usernameinput"
-                        placeholder="Username"
-                        value={formState.username}
-                        onChange={inputChange}
-                        />
-                        {errors.username.length > 2 ? <p className="error">{errors.username}</p> : null}
-                        <br />
-                </label>
-                <br />
-
-                <label htmlFor="password">
-                    Password
-
-                    <input
-                        type="text"
-                        password="text"
-                        id="passwordinput"
-                        placeholder="Password"
-                        value={formState.password}
-                        onChange={inputChange}
-                        />
-                        {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
-                        <br />
-                </label>
-                <br />
-
-                <label htmlFor="password">
-                    Password
-
-                    <input
-                        type="text"
-                        password="text"
-                        id="passwordinput"
-                        placeholder="Password"
-                        value={formState.password}
-                        onChange={inputChange}
-                        />
-                        {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
-                        <br />
-                </label>
-                <br />
-
                 <label htmlFor="firstname">
+                <br /><br />
                     First Name
-
+                    <br /><br />
                     <input
                         type="text"
                         firstname="text"
@@ -168,11 +122,12 @@ const formSchema = yup.object().shape({
                         {errors.firstname.length > 2 ? <p className="error">{errors.firstname}</p> : null}
                         <br />
                 </label>
-                <br />
+                
 
                 <label htmlFor="lastname">
+                <br /><br />
                     Last Name
-
+                    <br /><br />
                     <input
                         type="text"
                         lastname="text"
@@ -184,11 +139,12 @@ const formSchema = yup.object().shape({
                         {errors.lastname.length > 2 ? <p className="error">{errors.lastname}</p> : null}
                         <br />
                 </label>
-                <br />
+                
 
                 <label htmlFor="email">
+                <br /><br />
                     Email
-
+                    <br /><br />
                     <input
                         type="email"
                         email="email"
@@ -200,13 +156,47 @@ const formSchema = yup.object().shape({
                         {errors.email.length > 2 ? <p className="error">{errors.email}</p> : null}
                         <br />
                 </label>
+                
+                <label htmlFor="username">
+                <br /><br />
+                    Username
+                    <br /><br />
+                    <input
+                        type="text"
+                        username="name"
+                        id="usernameinput"
+                        placeholder="Username"
+                        value={formState.username}
+                        onChange={inputChange}
+                        />
+                        {errors.username.length > 2 ? <p className="error">{errors.username}</p> : null}
+                        <br />
+                </label>
+                
+
+                <label htmlFor="password">
+                <br /><br />
+                    Password
+                    <br /><br />
+                    <input
+                        type="text"
+                        password="text"
+                        id="passwordinput"
+                        placeholder="Password"
+                        value={formState.password}
+                        onChange={inputChange}
+                        />
+                        {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
+                        <br />
+                </label>
+                
                 <br />
 
-                <button name="Register" onSubmit={post} disabled={isButtonDisabled}>Submit</button>
-                <pre>{JSON.stringify(post, 'https://expat-journal-backend-jensen.herokuapp.com/api/auth/register', 2)}</pre>
+               <button name="Register" onSubmit={post}disabled={isButtonDisabled}>Submit</button>
+                 <pre>{JSON.stringify(post, 'https://expat-journal-backend-jensen.herokuapp.com/api/auth/register', 2)}</pre>
             </form>
         )
 
         }
 
-       
+        
