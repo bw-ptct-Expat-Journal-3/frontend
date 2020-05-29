@@ -40,6 +40,37 @@ const formSchema = yup.object().shape({
         email: "",
     });
 
+
+    const formSubmit = e => {
+        e.preventDefault();
+        console.log('form submitted!');
+        axios
+            .post("https://expat-journal-backend-jensen.herokuapp.com/api/auth/register", formState)
+            .then(response => {
+                setPost(response.date);
+                console.log("success", post);
+                console.log(response.data.psssword)
+                setFormState({
+                    username: "",
+                    password: "",
+                    firstname: "",
+                    lastname: "",
+                    email: "",
+                })
+                serverError(null);
+            })
+            .catch(error => {
+                setServerError("something went wrong");
+            });
+    };
+    useEffect(() => {
+        formSchema.isValid(formState).then(valid => {
+            console.log(formState);
+             console.log('valid?', valid);
+             setIsButtonDisabled(!valid);
+         });
+     }, [formSchema]);
+
         const validateChange = e => {
             yup
                 .reach(formSchema, e.target.username)
@@ -58,35 +89,9 @@ const formSchema = yup.object().shape({
                 });
         };
 
-        useEffect(() => {
-           formSchema.isValid(formState).then(valid => {
-                console.log('valid?', valid);
-                setIsButtonDisabled(!valid);
-            });
-        }, [formState]);
+        
 
-        const formSubmit = e => {
-            e.preventDefault();
-            console.log('form submitted!');
-            axios
-                .post("https://expat-journal-backend-jensen.herokuapp.com/api/auth/register", formState)
-                .then(response => {
-                    setPost(response.date);
-                    console.log("success", post);
-                    console.log(response.data.psssword)
-                    setFormState({
-                        username: "",
-                        password: "",
-                        firstname: "",
-                        lastname: "",
-                        email: "",
-                    })
-                    serverError(null);
-                })
-                .catch(error => {
-                    setServerError("something went wrong");
-                });
-        };
+        
 
         const inputChange = e => {
             e.persist();
