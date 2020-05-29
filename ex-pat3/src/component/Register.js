@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 //import logo from "./logo.svg";
-import axios from 'axios';
-import * as yup from 'yup';
-import 'styled-components';
+import axios from "axios";
+import * as yup from "yup";
+import "../App.css";
 
 
 
 export default function Register() {
 
-
+ 
 const formSchema = yup.object().shape({
-    username: yup.string().required("Username is a required field"),
-    password: yup.string().required("Password is a required field"),
     firstname: yup.string().required("First name is a required field"),
     lastname: yup.string().required("Last name is a required field"),
     email: yup.string().required("Email is a required field"),
+    username: yup.string().required("Username is a required field"),
+    password: yup.string().required("Password is a required field"),
+        
 });
 
 
     const initialRegisterState ={
-        username: "",
-        password: "",
         firstname: "",
         lastname: "",
         email: "",
+        username: "",
+        password: "",
+        
     };
 
     const [serverError, setServerError] = useState("");
@@ -31,30 +33,30 @@ const formSchema = yup.object().shape({
     const [formState, setFormState] =useState(initialRegisterState);
     const [isButtonDisabled, setIsButtonDisabled] =useState(true);
     const [errors, setErrors] = useState({
-
-        username: "",
-        password: "",
         firstname: "",
         lastname: "",
         email: "",
+        username: "",
+        password: "",
+        
     });
 
 
-    const formSubmit = e => {
+    const formSubmit = (e) => {
         e.preventDefault();
         console.log('form submitted!');
         axios
-            .post("https://expat-journal-backend-jensen.herokuapp.com/api/auth/register", formState)
+            .post("https://localhost:3000/api/auth/register", formState)
             .then(response => {
                 setPost(response.date);
                 console.log("success", post);
                 console.log(response.data.psssword)
                 setFormState({
-                    username: "",
-                    password: "",
                     firstname: "",
                     lastname: "",
                     email: "",
+                    username: "",
+                    password: "",
                 })
                 serverError(null);
             })
@@ -68,7 +70,7 @@ const formSchema = yup.object().shape({
              console.log('valid?', valid);
              setIsButtonDisabled(!valid);
          });
-     }, [formSchema]);
+     }, [formState]);
 
         const validateChange = e => {
             yup
@@ -96,7 +98,7 @@ const formSchema = yup.object().shape({
             e.persist();
 
         const newFormData = {
-            ...formState, [e.target.username]: e.target.type === "text" ?
+            ...setFormState, [e.target.username]: e.target.type === "text" ?
             e.target.textarea: e.target.value };
 
             validateChange(e);
@@ -113,42 +115,42 @@ const formSchema = yup.object().shape({
             }}>
                 <label htmlFor="firstname">
                 <br /><br />
-                    First Name
-                    <br /><br />
+                <br /> First Name<br />
+                    
                     <input
                         type="text"
                         firstname="text"
                         id="firstnameinput"
                         placeholder="First_Name"
-                        value={formState.firstname}
+                        value={formState.first_name}
                         onChange={inputChange}
                         />
                         {errors.firstname.length > 2 ? <p className="error">{errors.firstname}</p> : null}
-                        <br />
+                        
                 </label>
                 
 
                 <label htmlFor="lastname">
                 <br /><br />
-                    Last Name
-                    <br /><br />
+                <br />Last Name<br />
+                    
                     <input
                         type="text"
                         lastname="text"
                         id="lastnameinput"
                         placeholder="Last_Name"
-                        value={formState.lastname}
+                        value={formState.last_name}
                         onChange={inputChange}
                         />
                         {errors.lastname.length > 2 ? <p className="error">{errors.lastname}</p> : null}
-                        <br />
+                        
                 </label>
                 
 
                 <label htmlFor="email">
                 <br /><br />
-                    Email
-                    <br /><br />
+                <br />Email<br />
+                    
                     <input
                         type="email"
                         email="email"
@@ -158,13 +160,13 @@ const formSchema = yup.object().shape({
                         onChange={inputChange}
                         />
                         {errors.email.length > 2 ? <p className="error">{errors.email}</p> : null}
-                        <br />
+                        
                 </label>
                 
                 <label htmlFor="username">
                 <br /><br />
-                    Username
-                    <br /><br />
+                <br />Username<br />
+                    
                     <input
                         type="text"
                         username="name"
@@ -174,14 +176,14 @@ const formSchema = yup.object().shape({
                         onChange={inputChange}
                         />
                         {errors.username.length > 2 ? <p className="error">{errors.username}</p> : null}
-                        <br />
+                        
                 </label>
                 
 
                 <label htmlFor="password">
                 <br /><br />
-                    Password
-                    <br /><br />
+                <br />Password<br />
+                    
                     <input
                         type="text"
                         password="text"
@@ -191,13 +193,11 @@ const formSchema = yup.object().shape({
                         onChange={inputChange}
                         />
                         {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
-                        <br />
+                        <br /> 
                 </label>
-                
                 <br />
-
-               <button name="Register" onSubmit={post}disabled={isButtonDisabled}>Submit</button>
-                 <pre>{JSON.stringify(post, 'https://expat-journal-backend-jensen.herokuapp.com/api/auth/register', 2)}</pre>
+               <button name="Register" onSubmit={post}disabled={isButtonDisabled}>Register</button>
+                 <pre>{JSON.stringify(post, 'https://localhost:3000/api/auth/register', 2)}</pre>
             </form>
         )
 
