@@ -57,7 +57,6 @@ export const CHECK_LOGGED_IN_FAILED = 'CHECK_LOGGED_IN_FAILED'
 
 
 // ACTION CREATORS
-|
 
 // checkLoggedIn - this action pulls in the 'id' & 'token' from local storage & makes GET request to the api to test stored token
 // If the token fails- removes the user & resets to a non-logged in state
