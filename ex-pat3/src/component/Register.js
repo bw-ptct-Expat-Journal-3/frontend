@@ -6,7 +6,7 @@ import "../App.css";
 
 
 
-export default function Register() {
+
 
  
 const formSchema = yup.object().shape({
@@ -14,14 +14,15 @@ const formSchema = yup.object().shape({
     lastname: yup.string().required("Last name is a required field"),
     email: yup.string().required("Email is a required field"),
     username: yup.string().required("Username is a required field"),
-    password: yup.string().required("Password is a required field"),
+    password: yup.string().required("Password is a required field")
         
 });
 
+export default function Register() {
 
     const initialRegisterState ={
-        firstname: "",
-        lastname: "",
+        first_name: "",
+        last_name: "",
         email: "",
         username: "",
         password: "",
@@ -30,119 +31,117 @@ const formSchema = yup.object().shape({
 
     const [serverError, setServerError] = useState("");
     const [post, setPost] = useState([]);
-    const [formState, setFormState] =useState(initialRegisterState);
-    const [isButtonDisabled, setIsButtonDisabled] =useState(true);
+    const [formState, setFormState] = useState(initialRegisterState);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errors, setErrors] = useState({
-        firstname: "",
-        lastname: "",
+        first_name: "",
+        last_name: "",
         email: "",
         username: "",
         password: "",
         
     });
 
-
-    const formSubmit = (e) => {
-        e.preventDefault();
-        console.log('form submitted!');
-        axios
-            .post("https://localhost:3000/api/auth/register", formState)
-            .then(response => {
-                setPost(response.date);
-                console.log("success", post);
-                console.log(response.data.psssword)
-                setFormState({
-                    firstname: "",
-                    lastname: "",
-                    email: "",
-                    username: "",
-                    password: "",
+    const validateChange = e => {
+        yup
+            .reach(formSchema, e.target.first_name)
+            .validate(e.target.value)
+            .then(valid => {
+                setErrors({
+                    ...errors,
+                    [e.target.first_name]:""
                 })
-                serverError(null);
             })
-            .catch(error => {
-                setServerError("something went wrong");
+            .catch(errors => {
+                setServerError({
+                    ...errors,
+                    [e.target.first_name]:errors.errors[0]
+                });
             });
     };
+  
     useEffect(() => {
-        formSchema.isValid(formState).then(valid => {
-            console.log(formState);
+        formSchema.isValid(formState)
+        .then(valid => {
              console.log('valid?', valid);
              setIsButtonDisabled(!valid);
          });
      }, [formState]);
 
-        const validateChange = e => {
-            yup
-                .reach(formSchema, e.target.username)
-                .validate(e.target.value)
-                .then(valid => {
-                    setErrors({
-                        ...errors,
-                        [e.target.username]:""
-                    })
-                })
-                .catch(errors => {
-                    setErrors({
-                        ...errors,
-                        [e.target.username]:errors.errors[0]
-                    });
+     const formSubmit = e => {
+        e.preventDefault();
+        console.log('form submitted!');
+        axios
+            .post("https://localhost:3001/api/auth/register/cpdew2", formState)
+            .then(response => {
+                setPost(response.data);
+                console.log("success", post);
+                console.log(response.data.text)
+                setFormState({
+                    first_name: "",
+                    last_name: "",
+                    email: "",
+                    username: "",
+                    password: ""
                 });
-        };
-
-        
-
+                serverError(null);
+            })
+            .catch(error => {
+                setServerError("something went wrong!");
+            });
+    };
         
 
         const inputChange = e => {
             e.persist();
 
         const newFormData = {
-            ...setFormState, [e.target.username]: e.target.type === "text" ?
-            e.target.textarea: e.target.value };
+            ...formState, [e.target.text]: e.target.type === "text" ?
+            e.target.text: e.target.value };
 
             validateChange(e);
             setFormState(newFormData);
-            console.log(e.target.username)
+            console.log(e.target.text)
         };
 
-        return(
+        return (
             <form
-            onSubmit ={(e) => {
-                e.preventDefault();
-                alert("Registration complete, WELCOME!")
-
-            }}>
-                <label htmlFor="firstname">
+            onSubmit ={formSubmit}> {
+                
+                //.post("Registration complete, WELCOME!")
+            }
+                <label htmlFor="first_name">
                 <br /><br />
                 <br /> First Name<br />
                     
                     <input
-                        type="text"
-                        firstname="text"
-                        id="firstnameinput"
-                        placeholder="First_Name"
-                        value={formState.first_name}
+                        name="text"
+                        first_name="first_name"
+                        id="first_nameinput"
+                        placeholder=""
+                        value={formState.firstname}
                         onChange={inputChange}
+                        
                         />
-                        {errors.firstname.length > 2 ? <p className="error">{errors.firstname}</p> : null}
+                        {errors.first_name.length > 0 ? <p className="error">{errors.first_name}</p> : null}
                         
                 </label>
                 
 
-                <label htmlFor="lastname">
+                <label htmlFor="last_name">
                 <br /><br />
                 <br />Last Name<br />
                     
                     <input
-                        type="text"
-                        lastname="text"
-                        id="lastnameinput"
-                        placeholder="Last_Name"
-                        value={formState.last_name}
+                        name="text"
+                        last_name="text"
+                        id="last_nameinput"
+                        placeholder=""
+                        value={formState.lastname}
                         onChange={inputChange}
+                                            
                         />
-                        {errors.lastname.length > 2 ? <p className="error">{errors.lastname}</p> : null}
+                        {errors.last_name.length > 0 ? <p className="error">{errors.last_name}</p> : null}
                         
                 </label>
                 
@@ -153,13 +152,14 @@ const formSchema = yup.object().shape({
                     
                     <input
                         type="email"
-                        email="email"
+                        name="email"
                         id="emailinput"
-                        placeholder="Email"
+                        placeholder=""
                         value={formState.email}
                         onChange={inputChange}
+                        
                         />
-                        {errors.email.length > 2 ? <p className="error">{errors.email}</p> : null}
+                        {errors.email.length > 0 ? <p className="error">{errors.email}</p> : null}
                         
                 </label>
                 
@@ -169,35 +169,36 @@ const formSchema = yup.object().shape({
                     
                     <input
                         type="text"
-                        username="name"
+                        name="username"
                         id="usernameinput"
-                        placeholder="Username"
-                        value={formState.username}
+                        //placeholder=""
                         onChange={inputChange}
+                        value={formState.username}
+                        
                         />
-                        {errors.username.length > 2 ? <p className="error">{errors.username}</p> : null}
+                        {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
                         
                 </label>
                 
-
                 <label htmlFor="password">
                 <br /><br />
                 <br />Password<br />
                     
                     <input
-                        type="text"
-                        password="text"
+                        type="password"
+                        name="password"
                         id="passwordinput"
-                        placeholder="Password"
-                        value={formState.password}
+                        //placeholder=""
                         onChange={inputChange}
-                        />
-                        {errors.password.length > 2 ? <p className="error">{errors.password}</p> : null}
+                        value={formState.password}
+                        
+                       />
+                        {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
                         <br /> 
                 </label>
                 <br />
-               <button name="Register" onSubmit={post}disabled={isButtonDisabled}>Register</button>
-                 <pre>{JSON.stringify(post, 'https://localhost:3000/api/auth/register', 2)}</pre>
+               <button name="Register" onSubmit={post} disabled={isButtonDisabled}>Register</button>
+                 <pre>{JSON.stringify(post, 'https://localhost:3001/api/auth/register/cpdew2', 2)}</pre>
             </form>
         )
 
