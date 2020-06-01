@@ -1,4 +1,6 @@
 # frontend
+Link to App:
+https://ex-pat3.dipeshkoirala.now.sh/home
 
 REPO FOR REACT 1 &amp; 2 ONLY
 

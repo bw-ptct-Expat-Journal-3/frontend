@@ -22,16 +22,19 @@ const Home = () => {
 
             <nav>
               <Link to="/home">Home</Link>
-              {/* <a href="src/kcomponent/home.js" title="Home Page">
+              {/* <a href="src/components/home.js" title="Home Page">
                 Home
               </a> */}
               <Link to="/about">About</Link>
-              {/* <a href="src/kcomponent/about.js" title="About Page">
+              {/* <a href="src/components/about.js" title="About Page">
                 About
               </a> */}
-              <a href="src/kcomponent/contact.js" title="Contact Page">
+              <a href="src/components/contact.js" title="Contact Page">
                 Contact
               </a>
+              <Link to="/">Registration</Link>
+              <a href= src="components/RegistrationForm.js" alt="Registration">
+                RegistrationForm
               <a href="#" title="Login Page">
                 Login
               </a>
