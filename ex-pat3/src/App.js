@@ -3,14 +3,13 @@ import React from "react";
 import Register from "./component/Register.js";
 import "./App.css";
 
+
 function App() {
   return (
     <div className="App">
 
-<Route>
-
   <Register />
-  </Route>
+  
   </div>
 );
 }

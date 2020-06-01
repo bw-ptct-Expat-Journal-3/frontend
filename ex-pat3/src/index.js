@@ -8,11 +8,9 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-  <Route>
   <React.StrictMode>
     <App />
-  </React.StrictMode>
-  </Route>,
+  </React.StrictMode>,
   document.getElementById('root')
 
   )     
