@@ -4,10 +4,6 @@ import axios from "axios";
 import * as yup from "yup";
 import "../App.css";
 
-
-
-
-
  
 const formSchema = yup.object().shape({
     firstname: yup.string().required("First name is a required field"),
