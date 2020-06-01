@@ -61,6 +61,7 @@ a {
 a:hover {
   color: #98f199;
   font-size: 2.2rem;
+  padding: 5px;
 }
 fieldset {
   border: 2px inset dodgerblue;
