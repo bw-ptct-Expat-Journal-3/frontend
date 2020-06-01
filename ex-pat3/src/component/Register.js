@@ -68,7 +68,7 @@ export default function Register() {
         e.preventDefault();
         console.log('form submitted!');
         axios
-            .post("https://localhost:3000/api/auth/register/cpdew2", formState)
+            .post("https://localhost:3000/api/auth/register", formState)
             .then(response => {
                 setPost(response.data);
                 //console.log("success", post);
@@ -196,7 +196,7 @@ export default function Register() {
                 
                <button name='Register' onSubmit={post} disabled={isButtonDisabled}>Register</button>
                
-                 <pre>{JSON.stringify(post, 'https://localhost:3000/api/auth/register/cpdew2', 2)}</pre>
+                 <pre>{JSON.stringify(post, 'https://localhost:3000/api/auth/register', 2)}</pre>
             </form>
         )
 
