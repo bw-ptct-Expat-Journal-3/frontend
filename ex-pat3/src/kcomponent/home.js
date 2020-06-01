@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <div className="Home">Home Component</div>
+      {/* <div className="Home">Home Component</div> */}
 
       <head>
         <meta charset="UTF-8" />
@@ -26,6 +26,8 @@ const Home = () => {
                 Home
               </a> */}
               <Link to="/about">About</Link>
+
+              {/* https://bw-ptct-expat-journal-3.github.io/marketing-page/about.html */}
               {/* <a href="src/kcomponent/about.js" title="About Page">
                 About
               </a> */}

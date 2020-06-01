@@ -2,7 +2,8 @@ import React from "react";
 import Logon from "./kcomponent/Logon";
 import Home from "./kcomponent/home";
 import About from "./kcomponent/about";
-import Contact from "./kcomponent/about";
+
+import Comment from "./kcomponent/comment";
 // import Logon from "../kcomponent/Logon";
 // import logo from "./logo.svg";
 
@@ -35,7 +36,7 @@ function App() {
           <About />
         </Route>
         <Route path="/contact">
-          <Contact />
+          <Comment />
         </Route>
         <Route path="/">
           <Logon />

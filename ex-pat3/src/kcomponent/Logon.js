@@ -6,12 +6,25 @@ import * as yup from "yup";
 
 import "../App.css";
 
+const lowercaseRegex = /(?=.*[a-z])/;
+const uppercaseRegex = /(?=.*[A-Z])/;
+const numericRegex = /(?=.*[0-9])/;
+
 const formSchema = yup.object().shape({
   //take name of each of our form from the <input name="name"
 
-  username: yup.string().required("Name is required"),
+  username: yup
+    .string()
+    .min(2, "Too Short")
+    .matches(lowercaseRegex, "No Digits")
+    .matches(uppercaseRegex, "Nodigits")
+    .required("Name is required"),
   password: yup
     .string()
+    // .matches(lowercaseRegex, "One lowercase required")
+    // .matches(uppercaseRegex, "One uppercase required")
+    // .matches(numericRegex, "One number required")
+    .min(8, "Minimum 8 characters required")
     //.password("valid password plz")
     .required("Cant't be empty"),
 });
@@ -113,26 +126,30 @@ function Logon() {
           <fieldset className="dk">
             <legend>User Login Page</legend>
             <div className="dk-form">
-              <input
-                className="input"
-                type="text"
-                name="username"
-                //   value={value.username}
-                placeholder="Enter Name"
-                onChange={inputChange}
-              />
+              <section className="nameSec">
+                <input
+                  className="input"
+                  type="text"
+                  name="username"
+                  //   value={value.username}
+                  placeholder="Enter Name"
+                  onChange={inputChange}
+                />
+                <span className="err">{errorValue.username}</span>
 
-              <br />
-              <br />
-              <input
-                className="input"
-                type="text"
-                name="password"
-                //   value={value.password}
-                placeholder="Enter Password"
-                onChange={inputChange}
-              />
+                <br />
+                <br />
 
+                <input
+                  className="input"
+                  type="text"
+                  name="password"
+                  //   value={value.password}
+                  placeholder="Enter Password"
+                  onChange={inputChange}
+                />
+                <span className="err">{errorValue.password}</span>
+              </section>
               <br />
               <br />
               <>

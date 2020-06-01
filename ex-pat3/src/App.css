@@ -496,3 +496,52 @@ nav a:hover {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+.nameSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pwdSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.err {
+  color: red;
+}
+
+.team-info {
+  display: flex;
+  justify-content: space-evenly;
+  background: pink;
+  margin: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.tm {
+  background: #98fb99;
+  margin: 10px;
+  width: 300px;
+
+  height: 300px;
+  /* text-align: center;
+  vertical-align: center; */
+}
+
+.form-wrapper {
+  width: 30%;
+  margin: 3% auto;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  background-color: dodgerblue;
+
+  flex-wrap: wrap;
+}
+
+.firstI {
+  margin: 3%;
+  padding: 2%;
+  width: 90%;
+}
