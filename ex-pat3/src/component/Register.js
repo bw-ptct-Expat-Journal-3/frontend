@@ -72,10 +72,10 @@ export default function Register() {
         e.preventDefault();
         console.log('form submitted!');
         axios
-            .post("https://localhost:3001/api/auth/register/cpdew2", formState)
+            .post("https://localhost:3000/api/auth/register/cpdew2", formState)
             .then(response => {
                 setPost(response.data);
-                console.log("success", post);
+                //console.log("success", post);
                 console.log(response.data.text)
                 setFormState({
                     first_name: "",
@@ -107,8 +107,8 @@ export default function Register() {
         return (
             <form
             onSubmit ={formSubmit}> {
-                
-                //.post("Registration complete, WELCOME!")
+                //alert('Thank you for Registering with Expat-3!')
+        
             }
                 <label htmlFor="first_name">
                 <br /><br />
@@ -118,8 +118,8 @@ export default function Register() {
                         name="text"
                         first_name="first_name"
                         id="first_nameinput"
-                        placeholder=""
-                        value={formState.firstname}
+                        placeholder="Enter first name"
+                        value={formState.name}
                         onChange={inputChange}
                         
                         />
@@ -136,7 +136,7 @@ export default function Register() {
                         name="text"
                         last_name="text"
                         id="last_nameinput"
-                        placeholder=""
+                        placeholder="Enter last name"
                         value={formState.lastname}
                         onChange={inputChange}
                                             
@@ -154,8 +154,8 @@ export default function Register() {
                         type="email"
                         name="email"
                         id="emailinput"
-                        placeholder=""
-                        value={formState.email}
+                        placeholder="Enter Email"
+                        value={formState.text}
                         onChange={inputChange}
                         
                         />
@@ -171,9 +171,9 @@ export default function Register() {
                         type="text"
                         name="username"
                         id="usernameinput"
-                        //placeholder=""
+                        placeholder="Enter Username"
                         onChange={inputChange}
-                        value={formState.username}
+                        value={formState.text}
                         
                         />
                         {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
@@ -188,17 +188,19 @@ export default function Register() {
                         type="password"
                         name="password"
                         id="passwordinput"
-                        //placeholder=""
+                        placeholder="Enter Password"
                         onChange={inputChange}
-                        value={formState.password}
+                        value={formState.text}
                         
                        />
                         {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
                         <br /> 
                 </label>
                 <br />
-               <button name="Register" onSubmit={post} disabled={isButtonDisabled}>Register</button>
-                 <pre>{JSON.stringify(post, 'https://localhost:3001/api/auth/register/cpdew2', 2)}</pre>
+                
+               <button name='Register' onSubmit={post} disabled={isButtonDisabled}>Register</button>
+               
+                 <pre>{JSON.stringify(post, 'https://localhost:3000/api/auth/register/cpdew2', 2)}</pre>
             </form>
         )
 
